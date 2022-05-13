@@ -1,19 +1,17 @@
-A=[1 2 3; 4 5 6];
-b=[1 -2 5];
-[m,n] = size(A); % checking the size of matrix
+% example 7.3
+clc;
+clear;
 
+A = [2 2 1;4 2 3;1 1 1;];
+b = [6 4 0];
 
-%==========================================================================
+[m,n] = size(A);
+
 % Initialization
 x = zeros(m,1);
 l = zeros(m,m-1);
 
-%==========================================================================
-% Main Program
-%==========================================================================
-
 % Reducing Matrix A to upper triangular form
-
 for k = 1:m-1
     % =========Performing Partial-pivoting=================================
         for p = k+1:m
@@ -23,27 +21,22 @@ for k = 1:m-1
             end
         end
     % =====================================================================
-% =========Setting Matrix A to triangular form=================================
     for i = k+1:m
         l(i,k) = A(i,k)/A(k,k);
         for j = k+1:n
             A(i,j) = A(i,j)-l(i,k)*A(k,j);
-        end
+        end  
         b(i) = b(i)-l(i,k)*b(k);
     end
 end
-
 for k = 1:m-1
     for i = k+1:m
         A(i,k) = 0;
     end
 end
 
-%==========================================================================
-% Backward substitution of Matrix A
-%==========================================================================
+% Backward substitution
 x(m) = b(m)/A(m,m);
-
 for i = m-1:-1:1
     sum = 0;
     for j = i+1:m
@@ -51,6 +44,7 @@ for i = m-1:-1:1
     end
     x(i) = (b(i)- sum)/A(i,i);
 end
-
-%==========================================================================
-end
+disp(A);
+disp(x);
+    
+    
