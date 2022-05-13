@@ -31,5 +31,5 @@ for s=1:m
     x(s)=a(s,n);
 end
 disp('Gauss-Jordan method:');
-a;
-x;
+disp(a);
+disp(x);

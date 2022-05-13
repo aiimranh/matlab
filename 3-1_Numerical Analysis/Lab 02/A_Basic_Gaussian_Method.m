@@ -28,5 +28,5 @@ for s=m:-1:1
     x(s)=(a(s,n)-c)/a(s,s);
 end
 disp('Gauss elimination method:');
-a;
-x;
+disp(a);
+disp(x);
