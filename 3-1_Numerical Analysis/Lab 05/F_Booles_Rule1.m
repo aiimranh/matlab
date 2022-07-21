@@ -5,7 +5,7 @@ close;
 f = @(x) (sqrt(sin(x)));
 a = 0;
 b = pi/2;
-n = 3;
+n = 4;
 
 h = (b-a)/4;
 x1 = a+h;
